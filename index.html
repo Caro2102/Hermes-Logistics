@@ -144,6 +144,50 @@
       </footer>
     </div>
   </div>
+  
+  <!-- Add modal route-->
+  <div class="modal" id="modal-3">
+    <div class="modal-background " id="modalBg-1">
+    </div>
+    <div class="modal-card">
+      <header class="modal-card-head  has-background-warning">
+        <p class="modal-card-title has-text-black-bis">Add Route</p>
+      </header>
+      <section class="modal-card-body">
+        <div class="field">
+          <label for="from" class="label">
+              <i class="fa-regular fa-circle-dot"></i>
+          </label>
+          <div class="control">
+              <input type="text" id="from" placeholder="Origin" class="input">
+          </div>
+        </div>
+        <div class="field">
+          <label for="to" class="label">
+            <i class="fa-solid fa-location-dot"></i>
+          </label>
+          <div class="control">
+              <input type="text" id="to" placeholder="Destination" class="input">
+          </div>
+        </div>
+          <button class="button mb-2" onclick="calculateRoute()">
+              <i class="fa-solid fa-truck-fast"></i>
+          </button>
+        <div class="modal-content">
+          <div class="box" id="googleMap">      
+          </div>
+          <div class="box" id="output">
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot has-background-warning">
+        <button class="button is-success has-background-black-bis has-text-white-bis" id="SubmitRoute">Save</button>
+      </footer>
+    </div>
+  </div>
+</div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQPT8LtzXdbGp8IvdQLa0UnJ9WK3tjZDQ&libraries=places"></script>
+  <script src="assets/js/router.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
