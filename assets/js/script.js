@@ -3,8 +3,10 @@ var modalBg=document.querySelector('#modalBj-1');
 var modalD=document.querySelector('#modal-1');
 var successBtnd=document.querySelector('#success-1');
 var submitBtn=document.querySelector('#submit');
+var submitRoute=document.getElementById('SubmitRoute');//Add Submit Route button
 var cancel=document.querySelector('#cancel');
 var modalT=document.querySelector('#modal-2');
+var modalR=document.querySelector('#modal-3');//Add Route modal
 var nombreM=document.getElementById('nombre');
 var apellidoM=document.getElementById('apellido');
 var telefonoM=document.getElementById('tel');
@@ -17,6 +19,7 @@ var origenM=document.getElementById('origen');
 var destinoM=document.getElementById('destino');
 var tipoM=document.getElementById('tipoC')
 var trip={tripId:'',nombre:'',apellido:'', telefono:'',numeroLicencia:'',tipoLicencia:'',placa:'',status:'',tipo:'',tonelaje:'',origen:'',destino:'',};
+
 displayTrips();
 
 modalBtn.addEventListener('click', function(e) {
@@ -40,8 +43,20 @@ submit.addEventListener('click', function(e) {
     e.preventDefault();
     if(saveTruck()==true){
         modalT.classList.remove('is-active');
+        modalR.classList.add('is-active');//Activate Route modal
     }
 });
+
+//----
+SubmitRoute.addEventListener('click', function(e) { 
+    e.preventDefault();
+    if(saveRoute()==true){
+        modalR.classList.remove('is-active');//Dectivate Route modal
+        save();
+    }
+});
+//----
+
 function saveDriver(){
 
     if(nombreM.value==""){
@@ -82,6 +97,25 @@ function saveTruck(){
     
     return true;
 };
+
+//
+function saveRoute(){
+
+    if(document.getElementById('from').value == ""){
+        console.log('from vacio');
+        return false;
+    }if(document.getElementById('to').value == ""){
+        console.log('to vacio');
+        return false;
+    }
+
+    trip.origen = document.getElementById('from').value;
+    trip.destino = document.getElementById('to').value;
+
+    return true;
+}
+//
+
 function save(){
     var trips=[];
     var index=1; 
@@ -94,6 +128,8 @@ function save(){
     statusM.value="";
     tonelajeM.value="";
     tipoM.value="";
+    document.getElementById('from').value = '';
+    document.getElementById('to').value = '';
 
     if ( localStorage.getItem('lsa_Trips') != undefined ){
         trips = JSON.parse(localStorage.getItem('lsa_Trips'));
@@ -102,7 +138,9 @@ function save(){
     trip.tripId="TRIP-"+index;
     trips.push(trip);
     localStorage.setItem('lsa_Trips',JSON.stringify(trips));
+
     displayTrips();
+
     trip.nombre='';
     trip.apellido='';
     trip.telefono='';
@@ -112,6 +150,8 @@ function save(){
     trip.status='';
     trip.tipo='';
     trip.tonelaje='';
+    trip.origen='';
+    trip.destino='';
 };
 
 function displayTrips(){
