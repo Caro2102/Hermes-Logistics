@@ -31,12 +31,7 @@
                 </span>
                 <h2>Agregar Viaje</h2>
               </button>
-              <button class="button is-fullwidth button is-warning is-focused"id="save" onclick="save()">
-                <span class="icon is-medium">
-                  <i class="fab fa-github"></i>
-                </span>
-                <h2>Guardar</h2>
-              </button>
+             
               <div id="btnLi"></div>
           </ul>
         </aside>
@@ -49,12 +44,61 @@
               <div class="card-content"><div class="content">Content</div></div>
             </div>
             <br />
-            
-           
           </div>
         </div>
-        
       </section>
+        <!-- Add modal driver-->
+    <div class="modal" id="modal-1">
+      <div class="modal-background " id="modalBg-1"></div>
+      <div class="modal-card">
+        <header class="modal-card-head  has-background-warning">
+          <p class="modal-card-title has-text-black-bis">Add Driver</p>
+        </header>
+        <section class="modal-card-body has-background-white-bis">
+          <!-- Content ... -->
+          <div class="field">
+              <label class="label has-text-black-bis is-hovered" >Nombre</label>
+              <div class="control">
+                <input class="input has-background-grey-lighter  has-text-black-bis"id="nombre" type="text " >
+                <p class="help is-danger driverError" id="messagename"></p>
+              </div>
+              </div>
+            
+            <div class="field">
+              <label class="label has-text-black-bis">Apellido</label>
+              <div class="control">
+                <input class="input has-background-grey-lighter has-text-black-bis"id="apellido" type="text" >
+                <p class="help is-danger" id="messageAp"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label has-text-black-bis">Telefono</label>
+              <div class="control">
+                <input class="input has-background-grey-lighter  has-text-black-bis"id="tel" type="text" >
+                <p class="help is-danger" id="telefono"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label has-text-black-bis">Numero de licencia</label>
+              <div class="control">
+                <input class="input has-background-grey-lighter  has-text-black-bis" id="licencia" type="text" >
+                <p class="help is-danger" id="nolic"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label has-text-black-bis" >Tipo de licencia</label>
+              <div class="control">
+                <input class="input has-background-grey-lighter  has-text-black-bis" id="tipoL"type="text" >
+                <p class="help is-danger" id="tipolic"></p>
+              </div>
+            </div>
+        </section>
+        <footer class="modal-card-foot has-background-warning ">
+          <button class="button is-success has-background-black-bis has-text-white-bis is-focused" id="success-1">Next</button>
+        </footer>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
