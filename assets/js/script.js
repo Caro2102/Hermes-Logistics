@@ -81,4 +81,51 @@ function saveTruck(){
     trip.tonelaje=tonelajeM.value;
     
     return true;
-}
+};
+function save(){
+    var trips=[];
+    var index=1; 
+    nombreM.value="";
+    apellidoM.value="";
+    telefonoM.value="";
+    licenciaM.value="";
+    tipoLicM.value="";
+    placaM.value="";
+    statusM.value="";
+    tonelajeM.value="";
+    tipoM.value="";
+
+    if ( localStorage.getItem('lsa_Trips') != undefined ){
+        trips = JSON.parse(localStorage.getItem('lsa_Trips'));
+        index=trips.length+1;
+    }
+    trip.tripId="TRIP-"+index;
+    trips.push(trip);
+    localStorage.setItem('lsa_Trips',JSON.stringify(trips));
+    displayTrips();
+    trip.nombre='';
+    trip.apellido='';
+    trip.telefono='';
+    trip.numeroLicencia='';
+    trip.tipoLicencia='';
+    trip.placa='';
+    trip.status='';
+    trip.tipo='';
+    trip.tonelaje='';
+};
+
+function displayTrips(){
+    var trips=[];
+    var htmlText="";
+
+    if ( localStorage.getItem('lsa_Trips') != undefined ){
+        trips = JSON.parse(localStorage.getItem('lsa_Trips'));
+        trips = trips.reverse();
+        for(var i=0;i<trips.length;i++){
+
+            htmlText+="<button class='button is-black-bin  is-fullwidth my-3'>"+trips[i].tripId+"</button>";
+        }
+        var saveTriphtml=document.getElementById('btnLi');
+        saveTriphtml.innerHTML=htmlText;
+    }
+};
