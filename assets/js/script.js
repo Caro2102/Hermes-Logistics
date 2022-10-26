@@ -42,3 +42,43 @@ submit.addEventListener('click', function(e) {
         modalT.classList.remove('is-active');
     }
 });
+function saveDriver(){
+
+    if(nombreM.value==""){
+        document.getElementById('messagename').textContent="Este campo es obligatorio";
+    } if(apellidoM.value==""){
+        document.getElementById('messageAp').textContent="Este campo es obligatorio";
+    } if(telefonoM.value==""){
+        document.getElementById('telefono').textContent="Este campo es obligatorio";
+    } if(licenciaM.value==""){
+        document.getElementById('nolic').textContent="Este campo es obligatorio";
+    }if(tipoLicM.value==""){
+        document.getElementById('tipolic').textContent="Este campo es obligatorio";
+        return false;
+    }
+
+    trip.nombre=nombreM.value;
+    trip.apellido=apellidoM.value;
+    trip.telefono=telefonoM.value;
+    trip.numeroLicencia=licenciaM.value;
+    trip.tipoLicencia=tipoLicM.value;
+    return true;
+}
+
+function saveTruck(){
+    if(placaM.value==""){
+        document.getElementById('placaP').textContent="Este campo es obligatorio";
+    }if(statusM.value==""){
+        document.getElementById('statusP').textContent="Este campo es obligatorio";
+    }if(tonelajeM.value==""){
+        document.getElementById('tonelajeP').textContent="Este campo es obligatorio";
+        return false;
+    }
+    
+    trip.placa=placaM.value;
+    trip.status=statusM.value;
+    trip.tipo=tipoM.value;
+    trip.tonelaje=tonelajeM.value;
+    
+    return true;
+}
