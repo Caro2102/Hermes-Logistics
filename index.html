@@ -99,6 +99,53 @@
       </div>
     </div>
   </div>
+  <!-- Add modal truck -->
+  <div class="modal" id="modal-2">
+    <div class="modal-background " id="modalBg-2"></div>
+    <div class="modal-card">
+      <header class="modal-card-head has-background-warning">
+        <p class="modal-card-title has-text-black-bis">Add Truck</p>
+        <button class="delete" id="cancel" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body  has-background-white-bis">
+        <!-- Content ... -->
+        <div class="field">
+            <label class="label has-text-black-bis" >Placa</label>
+            <div class="control">
+              <input class="input has-background-grey-lighter  has-text-black-bis" id="placa" type="text" >
+              <p class="help is-danger" id="placaP"></p>
 
+            </div>
+          </div>
+          <div class="field">
+            <label class="label has-text-black-bis" >Status</label>
+            <div class="control">
+              <input class="input has-background-grey-lighter  has-text-black-bis"id="status" type="text" >
+              <p class="help is-danger" id="statusP"></p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label has-text-black-bis" >Tipo de camion</label>
+            <div class="control">
+              <input class="input has-background-grey-lighter  has-text-black-bis" id="tipoC" type="text" >
+              <p class="help is-danger" id="tipoP"></p>
+
+            </div>
+          </div>
+          <div class="field">
+            <label class="label has-text-black-bis">Tonelaje</label>
+            <div class="control">
+              <input class="input has-background-grey-lighter  has-text-black-bis" id="tonelaje"type="text" >
+              <p class="help is-danger" id="tonelajeP"></p>
+
+            </div>
+          </div>
+      </section>
+      <footer class="modal-card-foot has-background-warning is-focused">
+        <button class="button is-success  has-background-black-bis has-text-white-bis " id="submit">Next</button>
+      </footer>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
