@@ -18,6 +18,7 @@ var tonelajeM=document.getElementById('tonelaje');
 var origenM=document.getElementById('origen');
 var destinoM=document.getElementById('destino');
 var tipoM=document.getElementById('tipoC')
+var tripInfoC=document.getElementById('tripInfo');
 var trip={tripId:'',nombre:'',apellido:'', telefono:'',numeroLicencia:'',tipoLicencia:'',placa:'',status:'',tipo:'',tonelaje:'',origen:'',destino:'',};
 
 displayTrips();
@@ -163,9 +164,86 @@ function displayTrips(){
         trips = trips.reverse();
         for(var i=0;i<trips.length;i++){
 
-            htmlText+="<button class='button is-black-bin  is-fullwidth my-3'>"+trips[i].tripId+"</button>";
+            htmlText+="<button class='button is-black-bin  is-fullwidth my-3' onClick=tripInfo('"+trips[i].tripId+"')>"+trips[i].tripId+"</button>";
         }
         var saveTriphtml=document.getElementById('btnLi');
         saveTriphtml.innerHTML=htmlText;
+        
     }
 };
+function tripInfo(tripId){
+    tripInfoC.innerHTML='';
+    if ( localStorage.getItem('lsa_Trips') != undefined ){
+        var trips = JSON.parse(localStorage.getItem('lsa_Trips'));
+        var searchIndex=trips.findIndex((EventObj)=>EventObj.tripId==tripId);
+        if(searchIndex>=0){
+            var workOrder=trips.splice(searchIndex,1);
+            console.log(workOrder);
+            //Despliegue de informacion de conductor
+            var cardInfo=document.createElement('div');
+                cardInfo.setAttribute('class','card');
+            var cardHeader=document.createElement('div');
+                cardHeader.setAttribute('class','card-header');
+            var cardContent=document.createElement('div');
+                cardContent.setAttribute('class','card-content');
+            var titleD=document.createElement('p');
+                titleD.setAttribute('class','has-text-weight-bold mx-5 my-2');
+                titleD.textContent=workOrder[0].tripId;
+            var h4Conductor=document.createElement('h4');
+                h4Conductor.textContent='Conductor:';
+                h4Conductor.setAttribute('class','has-text-weight-bold');
+            var nombreD=document.createElement('p');
+                nombreD.textContent='Nombre: '+workOrder[0].nombre;
+            var apellidoD=document.createElement('p');
+                apellidoD.textContent='Apellido: '+workOrder[0].apellido; 
+            var telefonoD=document.createElement('p');
+                telefonoD.textContent='Telefono: '+workOrder[0].telefono;
+            var numeroLD=document.createElement('p');
+                numeroLD.textContent='Numero de licencia: '+workOrder[0].numeroLicencia;
+            var tpD=document.createElement('p');
+                tpD.textContent='Tipo de licencia: '+workOrder[0].tipoLicencia; 
+            var br=document.createElement('br');
+                
+            cardHeader.appendChild(titleD);
+            cardInfo.appendChild(cardHeader);
+            cardInfo.appendChild(cardContent);
+            tripInfoC.appendChild(cardInfo);
+            cardContent.appendChild(h4Conductor);
+            cardContent.appendChild(nombreD);
+            cardContent.appendChild(apellidoD);
+            cardContent.appendChild(telefonoD);
+            cardContent.appendChild(numeroLD);
+            cardContent.appendChild(tpD);
+            tripInfoC.appendChild(br);
+
+            //Despliegue de informacion camion
+            var cardInfoT=document.createElement('div');
+                cardInfoT.setAttribute('class','card');
+            var cardContentT=document.createElement('div');
+                cardContentT.setAttribute('class','card-content');
+            var h4Camion=document.createElement('h4');
+                h4Camion.textContent='Camion:';
+                h4Camion.setAttribute('class','has-text-weight-bold');
+            var placaT=document.createElement('P');
+                placaT.textContent='Placa: '+workOrder[0].placa;
+            var statusT=document.createElement('p');
+                statusT.textContent='Status: '+workOrder[0].status; 
+            var tipoT=document.createElement('p');
+                tipoT.textContent='Tipo: '+workOrder[0].tipo; 
+            var tonelajeT=document.createElement('p');
+                tonelajeT.textContent='Tonelaje: '+workOrder[0].tonelaje;
+            var brT=document.createElement('br');
+
+            tripInfoC.appendChild(cardInfoT);
+            cardInfoT.appendChild(cardContentT);
+            cardContentT.appendChild(h4Camion);
+            cardContentT.appendChild(placaT);
+            cardContentT.appendChild(statusT);
+            cardContentT.appendChild(tipoT);
+            cardContentT.appendChild(tonelajeT);
+            tripInfoC.appendChild(brT);
+
+        }
+    }
+
+}
