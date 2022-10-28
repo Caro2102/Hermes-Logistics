@@ -26,14 +26,14 @@ Hermes Logistics Versión 1.01 nos permite tener accesibilidad a la información
 # Introducción 📋
 En Hermes Logistics Versión 1.01 nos esforzamos para crear una accesibilidad básica y sencilla para que no sea difícil de manipular para el usuario.
 
-Tenemos el botón de "Agregar viaje" en el cual nos va a desplegar una pantalla en la cual te pedirá los siguientes datos: 
+Tenemos el botón de "Agregar viaje" en el cual nos va a desplegar una pantalla en la cual te pedirá los siguientes datos: <br/><br/>
 ![images](assets/images/Capture%201.PNG)
 - Nombres y apellidos del conductor 
 - Teléfono 
 - Número de licencia 
 - Tipo de Licencia
 
-Presionamos “Siguiente” para que se nos despliegue la pantalla de "Agregar Unidad"
+Presionamos “Siguiente” para que se nos despliegue la pantalla de "Agregar Unidad"<br/><br/>
 ![images](assets/images/Capture%202.PNG)
 
 En esta pantalla nos esta solicitando que tipo de unidad tiene tenemos que agregar lo solicitado
@@ -42,7 +42,7 @@ En esta pantalla nos esta solicitando que tipo de unidad tiene tenemos que agreg
 - Status (On time / Delayed)
 - Tipo de unidad 
 
-Tenemos que presionar "Siguiente" para que se nos despliegue la pantalla de "Agregar Ruta"
+Tenemos que presionar "Siguiente" para que se nos despliegue la pantalla de "Agregar Ruta"<br/><br/>
 ![images](assets/images/Captura%203.PNG)
 - En esta ultima pantalla hay que colocar la ciudad a la que nos dirimos Origen
 - Igualmente hay que poner la ciudad de Destino
@@ -51,10 +51,10 @@ Tenemos que presionar "Siguiente" para que se nos despliegue la pantalla de "Agr
 
 Despues hay que presionar la opcion de "Guardar" 
 
-Al momento de presionar "Guardar" nos agrega un TRIP-(mas el numero consecutivo) con los datos que se agregaron
+Al momento de presionar "Guardar" nos agrega un TRIP-(mas el numero consecutivo) con los datos que se agregaron<br/><br/>
 ![images](assets/images//Capture%205.PNG)
 
-Todos los datos se almacenan en el Local Storage al darle click en el TRIP buscado se nos va a desplegar la siguiente pantalla con todo los datos 
+Todos los datos se almacenan en el Local Storage al darle click en el TRIP buscado se nos va a desplegar la siguiente pantalla con todo los datos <br/><br/>
 ![images](assets/images/Capture%206.PNG)
 
 
