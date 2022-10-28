@@ -46,7 +46,8 @@
       <div class="modal-background " id="modalBg-1"></div>
       <div class="modal-card">
         <header class="modal-card-head  has-background-warning">
-          <p class="modal-card-title has-text-black-bis">Add Driver</p>
+          <p class="modal-card-title has-text-black-bis">Agregar Conductor</p>
+          <button class="delete" id="cancel" aria-label="close"></button>
         </header>
         <section class="modal-card-body has-background-white-bis">
           <!-- Content ... -->
@@ -88,7 +89,7 @@
             </div>
         </section>
         <footer class="modal-card-foot has-background-warning ">
-          <button class="button is-success has-background-black-bis has-text-white-bis is-focused" id="success-1">Next</button>
+          <button class="button is-success has-background-black-bis has-text-white-bis is-focused" id="success-1">Siguiente</button>
         </footer>
       </div>
     </div>
@@ -98,8 +99,8 @@
     <div class="modal-background " id="modalBg-2"></div>
     <div class="modal-card">
       <header class="modal-card-head has-background-warning">
-        <p class="modal-card-title has-text-black-bis">Add Truck</p>
-        <button class="delete" id="cancel" aria-label="close"></button>
+        <p class="modal-card-title has-text-black-bis">Agregar Unidad</p>
+        <button class="delete" id="cancel2" aria-label="close"></button>
       </header>
       <section class="modal-card-body  has-background-white-bis">
         <!-- Content ... -->
@@ -119,7 +120,7 @@
             </div>
           </div>
           <div class="field">
-            <label class="label has-text-black-bis" >Tipo de camion</label>
+            <label class="label has-text-black-bis" >Tipo de Unidad</label>
             <div class="control">
               <input class="input has-background-grey-lighter  has-text-black-bis" id="tipoC" type="text" >
               <p class="help is-danger" id="tipoP"></p>
@@ -136,7 +137,7 @@
           </div>
       </section>
       <footer class="modal-card-foot has-background-warning is-focused">
-        <button class="button is-success  has-background-black-bis has-text-white-bis " id="submit">Next</button>
+        <button class="button is-success  has-background-black-bis has-text-white-bis " id="submit">Siguiente</button>
       </footer>
     </div>
   </div>
@@ -147,7 +148,8 @@
     </div>
     <div class="modal-card">
       <header class="modal-card-head  has-background-warning">
-        <p class="modal-card-title has-text-black-bis">Add Route</p>
+        <p class="modal-card-title has-text-black-bis">Agregar Ruta</p>
+        <button class="delete" id="cancel3" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
         <div class="field">
@@ -172,12 +174,12 @@
         <div class="modal-content">
           <div class="box boxMaps" id="googleMap">      
           </div>
-          <div class="box" id="output">
+          <div class="modal-content" id="output">
           </div>
         </div>
       </section>
       <footer class="modal-card-foot has-background-warning">
-        <button class="button is-success has-background-black-bis has-text-white-bis" id="SubmitRoute">Save</button>
+        <button class="button is-success has-background-black-bis has-text-white-bis" id="SubmitRoute">Guardar</button>
       </footer>
     </div>
   </div>

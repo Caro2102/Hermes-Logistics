@@ -5,6 +5,8 @@ var successBtnd=document.querySelector('#success-1');
 var submitBtn=document.querySelector('#submit');
 var submitRoute=document.getElementById('SubmitRoute');//Add Submit Route button
 var cancel=document.querySelector('#cancel');
+var cancel2=document.querySelector('#cancel2');
+var cancel3=document.querySelector('#cancel3');
 var modalT=document.querySelector('#modal-2');
 var modalR=document.querySelector('#modal-3');//Add Route modal
 var nombreM=document.getElementById('nombre');
@@ -38,7 +40,15 @@ successBtnd.addEventListener('click', function(e) {
 });
 cancel.addEventListener('click', function(e) { 
     e.preventDefault();
+    modalD.classList.remove('is-active');
+});
+cancel2.addEventListener('click', function(e) { 
+    e.preventDefault();
     modalT.classList.remove('is-active');
+});
+cancel3.addEventListener('click', function(e) { 
+    e.preventDefault();
+    modalR.classList.remove('is-active');
 });
 submit.addEventListener('click', function(e) { 
     e.preventDefault();
@@ -49,7 +59,7 @@ submit.addEventListener('click', function(e) {
 });
 
 //----
-SubmitRoute.addEventListener('click', function(e) { 
+submitRoute.addEventListener('click', function(e) { 
     e.preventDefault();
     if(saveRoute()==true){
         modalR.classList.remove('is-active');//Dectivate Route modal
@@ -131,6 +141,10 @@ function save(){
     tipoM.value="";
     document.getElementById('from').value = '';
     document.getElementById('to').value = '';
+    document.getElementById('output').innerHTML='';
+    directionsDisplay.setDirections({ routes: []}); 
+    map.setCenter(latlng);
+
 
     if ( localStorage.getItem('lsa_Trips') != undefined ){
         trips = JSON.parse(localStorage.getItem('lsa_Trips'));
