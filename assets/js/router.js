@@ -67,6 +67,36 @@ function calculateRoute(){
     );
 }
 
+function calculateWeatherOriginDestination(city, container){
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=8317f2907e7792815e65ac40b4c293be&units=metric')
+        .then(function (response) {
+    return response.json();
+    })
+    .then(function (data) {
+
+        if ( data.cod == 200 ){
+
+            container.innerHTML =   '<div class="card-content">' +
+                                    '<img src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">' +                    
+                                    '<P>' +
+                                    'Temp: ' + data.main.temp + ' \u2103'  + 
+                                    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Viento: ' + data.wind.speed + ' m/s' +  
+                                    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Humedad: ' + data.main.humidity + '%' +  
+                                    '</P>' + 
+                                    '</div>';
+
+        }else{
+
+            console.log(data.cod);
+            console.log(data.message);
+      
+        }
+
+    });
+
+}
+
 function calculateWeather(lp_city){
 
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+lp_city+'&appid=8317f2907e7792815e65ac40b4c293be&units=metric')
@@ -77,28 +107,32 @@ function calculateWeather(lp_city){
 
         if ( data.cod == 200 ){
 
-            console.log(data);
+            /*console.log(data);
             console.log('City: ' + data.name);
             console.log('Temp: ' + data.main.temp + ' \u2103');
             console.log(data.wind.speed + ' m/s');
-            console.log('Humidity: ' + data.main.humidity + '%');
-
+            console.log('Humidity: ' + data.main.humidity + '%');*/
 
         }else{
 
-            console.log(data.cod);
-            console.log(data.message);
+            //console.log(data.cod);
+            //console.log(data.message);
       
         }
 
     });
+
 }
 
 var options = {
     types: ['(cities)']
 }
 
-/*function calculateRouteV2(from, to){
+function calculateRouteV2(from, to, lpmap, container){
+
+    var directionService2 = new google.maps.DirectionsService();
+    var directionsDisplay2 = new google.maps.DirectionsRenderer();
+    directionsDisplay2.setMap(lpmap);
 
     //Request creation
     var request = {
@@ -114,11 +148,15 @@ var options = {
         //Display route on map
         directionsDisplay2.setDirections(result);   
 
+        container.innerHTML = 'Distancia: ' + result.routes[0].legs[0].distance.text +
+                              '<br /><br />' + 
+                              'Tiempo: ' + result.routes[0].legs[0].duration.text;
+
     });
 
-    calculateWeather(from);
-    calculateWeather(to);
-}*/
+
+
+}
 
 var input1 = document.getElementById('from');
 var autocomplete1 = new google.maps.places.Autocomplete(input1, options);

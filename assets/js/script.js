@@ -243,6 +243,46 @@ function tripInfo(tripId){
             cardContentT.appendChild(tonelajeT);
             tripInfoC.appendChild(brT);
 
+            //Display Route info
+            var cardInfoR = document.createElement('div');
+                cardInfoR.setAttribute('class','card');
+            var cardContentR = document.createElement('div');
+                cardContentR.setAttribute('class', 'card-content');
+            var h4Route = document.createElement('h4');
+                h4Route.setAttribute('class', 'has-text-weight-bold');
+                h4Route.textContent = 'Ruta:';
+            var originR = document.createElement('P');
+                originR.textContent = 'Origen: '+workOrder[0].origen;
+            var destinationR = document.createElement('P');
+                destinationR.textContent = 'Destino: '+workOrder[0].destino;
+            
+            var mapR = document.createElement('div');
+                mapR.setAttribute('class', 'box boxMaps');
+                mapR.setAttribute('id', 'googleMap2');
+
+            var originWR = document.createElement('P');
+            var destinationWR = document.createElement('P');
+
+            var routeInfoR = document.createElement('P');
+
+            tripInfoC.appendChild(cardInfoR);
+            cardInfoR.appendChild(cardContentR);
+            cardContentR.appendChild(h4Route);
+            cardContentR.appendChild(originR);
+            cardContentR.appendChild(originWR);
+            cardContentR.appendChild(destinationR);
+            cardContentR.appendChild(destinationWR);
+            cardContentR.appendChild(routeInfoR);
+            cardContentR.appendChild(mapR);
+
+            var map2 = new google.maps.Map(document.getElementById("googleMap2"), mapOptions);
+
+            calculateRouteV2(workOrder[0].origen, workOrder[0].destino, map2, routeInfoR);
+
+            calculateWeatherOriginDestination(workOrder[0].origen, originWR);
+            calculateWeatherOriginDestination(workOrder[0].destino, destinationWR);
+
+
         }
     }
 
