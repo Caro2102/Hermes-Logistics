@@ -128,6 +128,7 @@ function saveRoute(){
 //
 
 function save(){
+
     var trips=[];
     var index=1; 
     nombreM.value="";
@@ -155,6 +156,7 @@ function save(){
     localStorage.setItem('lsa_Trips',JSON.stringify(trips));
 
     displayTrips();
+    tripInfo(trip.tripId);
 
     trip.nombre='';
     trip.apellido='';
